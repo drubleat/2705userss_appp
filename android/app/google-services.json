@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138149563657",
+    "project_id": "follow-the-txii",
+    "storage_bucket": "follow-the-txii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138149563657:android:6a613bc549f26522fa97d8",
+        "android_client_info": {
+          "package_name": "com.petacode.usersapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJyfiuKLbutjuG3NDXMQyPkf2D5OjkCFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
