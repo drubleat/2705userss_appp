@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          // Arkaplan fotoğrafı
+
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(

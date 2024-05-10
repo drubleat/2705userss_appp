@@ -18,14 +18,14 @@ class _HomePageState extends State<HomePage> {
   );
 
   final List<Marker> myMarker = [
-    Marker(
+    const Marker(
       markerId: MarkerId('first'),
       position: LatLng(40.113835, 26.421846),
       infoWindow: InfoWindow(
         title: 'My Position',
       ),
     ),
-    Marker(
+    const Marker(
       markerId: MarkerId('second'),
       position: LatLng(40.117707, 26.409751),
       infoWindow: InfoWindow(

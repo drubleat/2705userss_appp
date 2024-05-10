@@ -180,30 +180,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                       ),
                       TextButton(
-                        onPressed: (){
-                          void materialPageRoute(BuildContext context) {
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                  transitionDuration: const Duration(milliseconds: 500),
-                                  pageBuilder: (_,__ ,___ ) => const LoginScreen(),
-                              transitionsBuilder: (_, animation, __, child) {
-                                return FadeTransition(
-                                  opacity: animation,
-                                  child: child,
-                                );
-                              },
-                            ),
-                            );
-                          }
-
-
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          );
                         },
-                        child: const Text("Zaten bir hesabınız var mı? Buraya tıklayın",
-                          style: TextStyle(
-                            color: Colors.grey
-                          ),
-                        )
+                        child: const Text(
+                          "Zaten bir hesabınız var mı? Buraya tıklayın",
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       )
                     ],
                   )
