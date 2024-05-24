@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:users_app/authentication/signup_screen.dart';
-import 'package:users_app/pages/map_screen.dart';
+import 'package:users_app/pages/home_page.dart';
 import 'package:users_app/splash_screen/splash.dart';
 import 'dart:async';
 
@@ -41,20 +41,20 @@ class MyApp extends StatelessWidget {
       ),
       home: const SplashScreen(),
       routes: {
-        '/signup': (context) => const MyMapScreen(),
+        '/signup': (context) => const HomePage(),
       },
     );
   }
 }
 
 class PermissionManager {
-  // Konum iznini kontrol etmek için bu fonksiyonu kullanın.
+  // Konum iznini kontrol etmek için bu fonksiyonu kullan.
   static Future<bool> checkLocationPermission() async {
     var status = await Permission.locationWhenInUse.status;
     return status.isGranted;
   }
 
-  // Konum izni istemek için bu fonksiyonu kullanın.
+  // Konum izni istemek için bu fonksiyonu kullan
   static Future<bool> requestLocationPermission() async {
     var status = await Permission.locationWhenInUse.request();
     return status.isGranted;

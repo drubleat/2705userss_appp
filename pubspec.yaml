@@ -44,6 +44,11 @@ dependencies:
   permission_handler:
   geocoding: ^3.0.0
   geolocator: ^11.0.0
+  google_nav_bar: ^5.0.6
+  http: ^1.2.1
+  flutter_polyline_points: ^2.0.0
+
+
 
 
 

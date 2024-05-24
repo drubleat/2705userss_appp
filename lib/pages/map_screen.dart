@@ -7,17 +7,13 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MyMapScreen extends StatefulWidget {
-  const MyMapScreen({super.key});
-
-
+  const MyMapScreen({Key? key}) : super(key: key);
 
   @override
   State<MyMapScreen> createState() => _MyMapScreenState();
-
 }
 
 class _MyMapScreenState extends State<MyMapScreen> {
-
   final Completer<GoogleMapController> _controller = Completer();
   Position? currentPositionOfUser;
   GoogleMapController? controllerGoogleMap;
@@ -25,25 +21,23 @@ class _MyMapScreenState extends State<MyMapScreen> {
   static const CameraPosition _initialPosition = CameraPosition(
     target: LatLng(39.92052360870022, 32.80290273831604),
     zoom: 14,
-
   );
-  void updateMapTheme(GoogleMapController controller)
-  {
-    getJsonFileFromThemes("themes/night_style.json").then((value)=> setGoogleMapStyle(value, controller));
+
+  void updateMapTheme(GoogleMapController controller) {
+    getJsonFileFromThemes("themes/night_style.json").then((value) => setGoogleMapStyle(value, controller));
   }
-  Future<String> getJsonFileFromThemes(String mapStylePath) async
-  {
+
+  Future<String> getJsonFileFromThemes(String mapStylePath) async {
     ByteData byteData = await rootBundle.load(mapStylePath);
     var list = byteData.buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes);
     return utf8.decode(list);
   }
-  setGoogleMapStyle(String googleMapStyle, GoogleMapController controller)
-  {
+
+  void setGoogleMapStyle(String googleMapStyle, GoogleMapController controller) {
     controller.setMapStyle(googleMapStyle);
   }
 
-  getCurrentLiveLocationOfUser() async
-  {
+  void getCurrentLiveLocationOfUser() async {
     Position positionOfUser = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
     currentPositionOfUser = positionOfUser;
 
@@ -51,9 +45,7 @@ class _MyMapScreenState extends State<MyMapScreen> {
 
     CameraPosition cameraPosition = CameraPosition(target: positionOfUserInLatLng, zoom: 15);
     controllerGoogleMap!.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
-
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +54,16 @@ class _MyMapScreenState extends State<MyMapScreen> {
         padding: const EdgeInsets.all(16.0),
         child: SafeArea(
           child: GoogleMap(
-              mapType: MapType.normal,
-              myLocationEnabled: true,
-              initialCameraPosition: _initialPosition,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-                getCurrentLiveLocationOfUser();
-                updateMapTheme(controller);
-              }),
+            mapType: MapType.normal,
+            myLocationEnabled: true,
+            initialCameraPosition: _initialPosition,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+              controllerGoogleMap = controller;
+              getCurrentLiveLocationOfUser();
+              updateMapTheme(controller);
+            },
+          ),
         ),
       ),
     );
