@@ -13,17 +13,17 @@ import '../widgets/animations.dart';
 import 'ilan_page.dart';
 
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class DriverHomePage extends StatefulWidget {
+  const DriverHomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DriverHomePage> createState() => _DriverHomePageState();
 
 
 }
 
 
-class _HomePageState extends State<HomePage> {
+class _DriverHomePageState extends State<DriverHomePage> {
   final Completer<GoogleMapController> _controller = Completer();
 
   static const CameraPosition _initialPosition = CameraPosition(
@@ -109,11 +109,11 @@ class _HomePageState extends State<HomePage> {
                           if (index == 0) {
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const HomePage()));
+                                MaterialPageRoute(builder: (context) => const DriverHomePage()));
                           } else if (index == 1) {
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const HomePage()));
+                                MaterialPageRoute(builder: (context) => const DriverHomePage()));
                           }
                           else if (index == 2) {
                             Navigator.push(

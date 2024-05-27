@@ -2,6 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:users_app/authentication/signup_screen.dart';
+import 'package:users_app/pages/search_page.dart';
+import 'package:users_app/pages/display_driver_info.dart';
+import 'package:users_app/pages/driverViewRouteScreen.dart';
+import 'package:users_app/pages/driver_add_personalInfoToRDB.dart';
+import 'package:users_app/pages/driver_home_page.dart';
 import 'package:users_app/pages/home_page.dart';
 import 'package:users_app/splash_screen/splash.dart';
 import 'dart:async';
@@ -41,7 +46,8 @@ class MyApp extends StatelessWidget {
       ),
       home: const SplashScreen(),
       routes: {
-        '/signup': (context) => const HomePage(),
+        '/signup': (context) => displayDriverInfo()
+
       },
     );
   }
